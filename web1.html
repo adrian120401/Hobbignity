@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HOBBIGNITY | E-Commerce Oficial de Ocio Adaptado y Autonomía</title>
+  
+  <!-- Tipografía Corporativa Formal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       VARIABLES Y PALETA DE MARCA CORPORATIVA (Basada en Slide 7)
+       ========================================================================== */
+    :root {
+      --brand-blue: #0072BC;
+      --brand-blue-dark: #00568E;
+      --brand-orange: #F15A24;
+      --brand-orange-hover: #D74714;
+      --brand-yellow: #FFC20E;
+      --brand-green: #2E7D32;
+      --brand-purple: #7B4B94;
+
+      --bg-body: #F8FAFC;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #F1F5F9;
+      --border-color: #E2E8F0;
+      --border-dark: #CBD5E1;
+
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-light: #64748B;
+
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+      --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+      --font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-scale: 16px;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --focus-ring: 3px solid #F15A24;
+    }
+
+    /* MODO ALTO CONTRASTE FORMAL */
+    body.high-contrast {
+      --bg-body: #000000;
+      --bg-surface: #0A0A0A;
+      --bg-subtle: #171717;
+      --border-color: #FFFFFF;
+      --border-dark: #FFFFFF;
+      --text-main: #FFFFFF;
+      --text-muted: #E2E8F0;
+      --text-light: #CBD5E1;
+      --brand-blue: #60A5FA;
+      --brand-orange: #FB923C;
+      --focus-ring: 4px solid #FFFF00;
+    }
+
+    /* MODO DISLEXIA */
+    body.dyslexia-mode {
+      --font-family: "Comic Sans MS", "Arial Rounded MT Bold", sans-serif;
+      letter-spacing: 0.06em;
+      line-height: 1.8 !important;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      font-size: var(--font-scale);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Enlace de escape para lectores y teclado */
+    .skip-link {
+      position: absolute;
+      top: -50px;
+      left: 1rem;
+      background: var(--brand-blue);
+      color: #fff;
+      padding: 0.75rem 1.25rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      z-index: 99999;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    :focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ==========================================================================
+       1. TOPBAR DE ACCESIBILIDAD Y CONFIANZA
+       ========================================================================== */
+    .top-utility-bar {
+      background-color: #0F172A;
+      color: #94A3B8;
+      font-size: 0.8125rem;
+      border-bottom: 1px solid #1E293B;
+      padding: 0.4rem 0;
+    }
+    .top-utility-bar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .utility-trust {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      font-weight: 500;
+    }
+    .utility-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .a11y-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .a11y-btn {
+      background: #1E293B;
+      color: #F8FAFC;
+      border: 1px solid #334155;
+      padding: 0.25rem 0.6rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    .a11y-btn:hover {
+      background: #334155;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       2. CABECERA COMERCIAL (HEADER)
+       ========================================================================== */
+    header.site-header {
+      background-color: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow-sm);
+    }
+    .header-main {
+      padding: 1rem 0;
+    }
+    .header-main .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--brand-blue);
+    }
+    .brand-logo-mark {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, var(--brand-blue), var(--brand-purple));
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 1.3rem;
+    }
+    .brand-logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .brand-logo-text .name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--brand-blue);
+    }
+    .brand-logo-text .tag {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      color: var(--brand-orange);
+    }
+
+    /* Buscador Formal */
+    .header-search {
+      flex: 1;
+      max-width: 500px;
+      position: relative;
+    }
+    .header-search input {
+      width: 100%;
+      padding: 0.65rem 1rem 0.65rem 2.5rem;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      background-color: var(--bg-subtle);
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+    .header-search svg {
+      position: absolute;
+      left: 0.8rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      fill: var(--text-light);
+    }
+
+    /* Acciones Header (Cuenta & Carrito) */
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .action-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      text-decoration: none;
+      position: relative;
+    }
+    .action-btn:hover {
+      background-color: var(--bg-subtle);
+    }
+    .action-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+    .cart-counter {
+      background-color: var(--brand-orange);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 800;
+      border-radius: 999px;
+      padding: 0.15rem 0.45rem;
+      min-width: 18px;
+      text-align: center;
+    }
+
+    /* Subnavegación de Categorías */
+    .header-nav {
+      background-color: var(--bg-surface);
+      border-top: 1px solid var(--border-color);
+      font-size: 0.875rem;
+    }
+    .header-nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.75rem;
+      padding: 0.6rem 0;
+      overflow-x: auto;
+    }
+    .header-nav a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      padding-bottom: 0.2rem;
+      white-space: nowrap;
+    }
+    .header-nav a:hover, .header-nav a.active {
+      color: var(--brand-blue);
+      border-bottom: 2px solid var(--brand-blue);
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION COMERCIAL (Slide 1, 2 y 3)
+       ========================================================================== */
+    .hero-banner {
+      background: linear-gradient(100deg, #FFFFFF 0%, #F1F5F9 100%);
+      border-bottom: 1px solid var(--border-color);
+      padding: 3.5rem 0;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 3rem;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #E0F2FE;
+      color: #0369A1;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-size: clamp(2rem, 3.5vw, 2.85rem);
+      font-weight: 800;
+      line-height: 1.15;
+      color: var(--text-main);
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 0.15s ease;
+    }
+    .btn-primary {
+      background-color: var(--brand-orange);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-primary:hover {
+      background-color: var(--brand-orange-hover);
+    }
+    .btn-outline {
+      background-color: transparent;
+      border-color: var(--border-dark);
+      color: var(--text-main);
+    }
+    .btn-outline:hover {
+      background-color: var(--bg-subtle);
+    }
+
+    /* Imagen Destacada Hero */
+    .hero-media {
+      position: relative;
+    }
+    .hero-image-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 0.75rem;
+      box-shadow: var(--shadow-lg);
+    }
+    .hero-image-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      display: block;
+    }
+    .hero-floating-quote {
+      position: absolute;
+      bottom: -15px;
+      left: -15px;
+      background: #FFFFFF;
+      padding: 0.85rem 1.25rem;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-md);
+      max-width: 260px;
+      font-size: 0.8rem;
+    }
+    .hero-floating-quote strong {
+      color: var(--brand-blue);
+      display: block;
+    }
+
+    /* Franja de garantías comerciales */
+    .trust-strip {
+      background: var(--bg-surface);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1.5rem 0;
+    }
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .trust-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+    .trust-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-sm);
+      background: #EFF6FF;
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.1rem;
+    }
+    .trust-item h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .trust-item p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+    }
+
+    /* ==========================================================================
+       4. CATÁLOGO COMERCIAL DE PRODUCTOS (Slide 4, 5, 8)
+       ========================================================================== */
+    .catalog-section {
+      padding: 3.5rem 0;
+    }
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .section-header h2 {
+      font-size: 1.85rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Filtros comerciales */
+    .catalog-filters {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .filter-chip {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .filter-chip.active, .filter-chip:hover {
+      background-color: var(--brand-blue);
+      border-color: var(--brand-blue);
+      color: #FFFFFF;
+    }
+
+    /* Grid de tarjetas de producto comerciales */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.75rem;
+    }
+    .product-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--border-dark);
+    }
+    .product-badge-stock {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: #FFFFFF;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.25rem 0.6rem;
+      border-radius: 4px;
+      z-index: 2;
+    }
+    .product-media {
+      position: relative;
+      background-color: #F8FAFC;
+      height: 220px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .product-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .product-card:hover .product-media img {
+      transform: scale(1.04);
+    }
+
+    .product-body {
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .product-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.4rem;
+      font-size: 0.75rem;
+    }
+    .product-category {
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .product-rating {
+      color: #D97706;
+      font-weight: 700;
+    }
+    .product-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      color: var(--text-main);
+      line-height: 1.3;
+    }
+    .product-sku {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      margin-bottom: 0.6rem;
+      font-family: monospace;
+    }
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      flex-grow: 1;
+    }
+    .product-specs-list {
+      background-color: var(--bg-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 1.25rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      list-style: none;
+    }
+    .product-specs-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.15rem 0;
+    }
+    .product-price-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: auto;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--border-color);
+    }
+    .price-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+    .price-label {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      text-transform: uppercase;
+    }
+    .product-price {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .btn-add-cart {
+      background-color: var(--brand-blue);
+      color: #FFFFFF;
+      border: none;
+      padding: 0.65rem 1rem;
+      border-radius: var(--radius-sm);
+      font-weight: 700;
+      font-size: 0.875rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background-color 0.15s;
+    }
+    .btn-add-cart:hover {
+      background-color: var(--brand-blue-dark);
+    }
+
+    /* ==========================================================================
+       5. SERVICIO DE PERSONALIZACIÓN Y FABRICACIÓN LOCAL (Slide 5, 6 y 10)
+       ========================================================================== */
+    .custom-service-section {
+      background-color: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+      padding: 4rem 0;
+    }
+    .custom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+    .custom-content h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .custom-features {
+      margin: 1.75rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .feature-item {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+    }
+    .feature-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--brand-orange);
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+    .feature-item h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+    .feature-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Formulario Formal de Presupuesto / Adaptación */
+    .custom-form-card {
+      background: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+    }
+    .custom-form-card h3 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+    }
+    .custom-form-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .form-field {
+      margin-bottom: 1rem;
+    }
+    .form-field label {
+      display: block;
+      font-size: 0.825rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--text-main);
+    }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 0.65rem 0.85rem;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 0.9rem;
+      background: #FFFFFF;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       6. CARRITO FICTICIO INTERACTIVO (CART DRAWER ACCESIBLE)
+       ========================================================================== */
+    .cart-drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(3px);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s;
+    }
+    .cart-drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: -480px;
+      width: 100%;
+      max-width: 460px;
+      height: 100%;
+      background: var(--bg-surface);
+      z-index: 10000;
+      box-shadow: var(--shadow-xl);
+      display: flex;
+      flex-direction: column;
+      transition: right 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .cart-drawer.open {
+      right: 0;
+    }
+
+    .cart-header {
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cart-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      cursor: pointer;
+      color: var(--text-muted);
+      padding: 0.25rem;
+    }
+
+    .cart-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem;
+    }
+    .cart-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+    }
+    .cart-empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding-bottom: 1.25rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--border-color);
+      align-items: center;
+    }
+    .cart-item-img {
+      width: 70px;
+      height: 70px;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      border: 1px solid var(--border-color);
+    }
+    .cart-item-info {
+      flex: 1;
+    }
+    .cart-item-title {
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 0.2rem;
+    }
+    .cart-item-price {
+      font-size: 0.85rem;
+      color: var(--brand-blue);
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .cart-item-qty {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border-dark);
+      border-radius: var(--radius-sm);
+    }
+    .cart-qty-btn {
+      background: var(--bg-subtle);
+      border: none;
+      width: 26px;
+      height: 26px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .cart-qty-val {
+      padding: 0 0.5rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .cart-item-del {
+      background: transparent;
+      border: none;
+      color: #DC2626;
+      font-size: 0.8rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      text-decoration: underline;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--border-color);
+      padding: 1.5rem;
+      background: var(--bg-subtle);
+    }
+    .cart-summary-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.875rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-muted);
+    }
+    .cart-total-line {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border-dark);
+    }
+    .btn-checkout {
+      width: 100%;
+      margin-top: 1.25rem;
+      padding: 0.95rem;
+      background-color: var(--brand-green);
+      color: #FFFFFF;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .btn-checkout:hover {
+      background-color: #246428;
+    }
+
+    /* Modal Checkout Ficticio */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 20000;
+      padding: 1.5rem;
+    }
+    .modal-backdrop.open {
+      display: flex;
+    }
+    .checkout-modal {
+      background: var(--bg-surface);
+      max-width: 500px;
+      width: 100%;
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-xl);
+      text-align: center;
+    }
+
+    /* Toast Accessible */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      background: #0F172A;
+      color: #FFFFFF;
+      padding: 0.75rem 1.25rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.875rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      z-index: 100000;
+      display: none;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 4px solid var(--brand-orange);
+    }
+    .toast-notice.show {
+      display: flex;
+    }
+
+    /* ==========================================================================
+       7. FOOTER CORPORATIVO (Slide 6, 9 y 12)
+       ========================================================================== */
+    footer.site-footer {
+      background-color: #0F172A;
+      color: #94A3B8;
+      font-size: 0.875rem;
+      padding: 4rem 0 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer-col h4 {
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+    .footer-col a {
+      color: #94A3B8;
+      text-decoration: none;
+    }
+    .footer-col a:hover {
+      color: #FFFFFF;
+    }
+    .footer-bottom {
+      border-top: 1px solid #1E293B;
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.8rem;
+    }
+    .credits-tag {
+      color: #CBD5E1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .custom-grid, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .header-search {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Salto rápido para accesibilidad por teclado -->
+  <a href="#main-catalog" class="skip-link">Saltar al catálogo de productos</a>
+
+  <!-- ==========================================================================
+       TOPBAR UTILITY & A11Y TOOLBAR
+       ========================================================================== */ -->
+  <div class="top-utility-bar">
+    <div class="container">
+      <div class="utility-trust">
+        <span>🛡️ Certificación de Ergonomía Asistiva</span>
+        <span>🚚 Envíos adaptados con 30 días de prueba</span>
+        <span>🤝 Grupo E · Comercio con Impacto Social</span>
+      </div>
+
+      <div class="a11y-controls" role="region" aria-label="Ajustes de Accesibilidad">
+        <button type="button" class="a11y-btn" id="a11y-decrease" aria-label="Disminuir texto">A-</button>
+        <button type="button" class="a11y-btn" id="a11y-increase" aria-label="Aumentar texto">A+</button>
+        <button type="button" class="a11y-btn" id="a11y-contrast" aria-pressed="false" aria-label="Modo alto contraste">🌓 Contraste</button>
+        <button type="button" class="a11y-btn" id="a11y-dyslexia" aria-pressed="false" aria-label="Modo lectura fácil para dislexia">📖 Fuente Lectura</button>
+        <button type="button" class="a11y-btn" id="a11y-speech" aria-label="Lector de voz integrado">🔊 Escuchar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CABECERA CORPORATIVA DE E-COMMERCE
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="header-main">
+      <div class="container">
+        <!-- Logo Corporativo -->
+        <a href="#" class="brand-logo" aria-label="Hobbignity E-Commerce - Inicio">
+          <div class="brand-logo-mark" aria-hidden="true">H</div>
+          <div class="brand-logo-text">
+            <span class="name">HOBBIGNITY</span>
+            <span class="tag">E-Commerce for a decent life</span>
+          </div>
+        </a>
+
+        <!-- Barra de Búsqueda Comercial -->
+        <div class="header-search" role="search">
+          <svg viewBox="0 0 24 24"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
+          <input type="text" id="searchInput" placeholder="Buscar adaptaciones, grips, mandos, sujetacartas..." aria-label="Buscar en la tienda">
+        </div>
+
+        <!-- Acciones: Mi Cuenta y Carrito Ficticio -->
+        <div class="header-actions">
+          <a href="#personalizacion" class="action-btn" aria-label="Solicitar servicio de personalización">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6h6v-2h-4z"/></svg>
+            <span>A Medida</span>
+          </a>
+
+          <!-- Botón de Apertura de Carrito -->
+          <button type="button" class="action-btn" id="openCartBtn" aria-label="Ver carrito de compras" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6zM10 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+            <span>Carrito</span>
+            <span class="cart-counter" id="cartCountBadge" aria-live="polite">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación por Categorías -->
+    <nav class="header-nav" aria-label="Categorías de productos">
+      <div class="container">
+        <ul>
+          <li><a href="#main-catalog" class="active">Todos los Productos</a></li>
+          <li><a href="#main-catalog" data-filter="gaming">Gaming & Controles</a></li>
+          <li><a href="#main-catalog" data-filter="arte">Arte & Agarre Suave</a></li>
+          <li><a href="#main-catalog" data-filter="mesa">Juegos de Mesa</a></li>
+          <li><a href="#main-catalog" data-filter="musica">Música & Instrumentos</a></li>
+          <li><a href="#filosofia">Ética & Fabricación Abierta</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    
+    <!-- ==========================================================================
+         HERO BANNER CORPORATIVO
+         ========================================================================== -->
+    <section class="hero-banner" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-info">
+          <div class="hero-badge">Tecnología Asistiva · Grupo E</div>
+          <h1 id="hero-title" class="hero-title">Ocio sin barreras, autonomía garantizada.</h1>
+          <p class="hero-desc">
+            Suministramos y personalizamos productos adaptados de alta ingeniería para videojuegos, arte, juegos de mesa y música. La dignidad humana incluye la libertad absoluta de disfrutar del tiempo libre.
+          </p>
+          <div class="hero-actions">
+            <a href="#main-catalog" class="btn btn-primary">Comprar Productos Adaptados</a>
+            <a href="#personalizacion" class="btn btn-outline">Solicitar Adaptación Personalizada</a>
+          </div>
+        </div>
+
+        <!-- Fotografía Real: Fabricación y Adaptación Ergonométrica -->
+        <div class="hero-media">
+          <div class="hero-image-card">
+            <img src="https://images.unsplash.com/photo-1756723902363-25de2ac0ffae?w=800&auto=format&fit=crop&q=80" 
+                 alt="Ingeniero en taller maker utilizando software CAD e impresora 3D para la creación de ayudas técnicas y grips ergonómicos" />
+          </div>
+          <div class="hero-floating-quote">
+            <strong>"Un hobby. Múltiples formas de vivirlo."</strong>
+            <span>Diseño co-creado junto a usuarios y terapeutas.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de Valores de Confianza Comercial -->
+    <section class="trust-strip" aria-label="Ventajas comerciales">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">🛠️</div>
+          <div>
+            <h4>Derecho a Reparar</h4>
+            <p>Piezas de repuesto abiertas y archivos imprimibles en 3D.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">🖐️</div>
+          <div>
+            <h4>Fuerza de Activación Mínima</h4>
+            <p>Mecanismos ultra-sensibles para baja movilidad muscular.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">🤝</div>
+          <div>
+            <h4>Comunidad Abierta</h4>
+            <p>Inspirado en redes abiertas como AbleGamers y Makers Making Change.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true">📦</div>
+          <div>
+            <h4>Envíos Seguros & Pruebas</h4>
+            <p>30 días de prueba para garantizar ergonomía perfecta en casa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CATÁLOGO COMERCIAL (Slide 4, 5 y 8)
+         ========================================================================== -->
+    <section class="catalog-section" id="main-catalog" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 id="catalog-title">Catálogo Oficial de Productos Adaptados</h2>
+            <p>Dispositivos ergonómicos, soportes y ayudas técnicas con disponibilidad inmediata o a medida.</p>
+          </div>
+
+          <!-- Filtros de Categoría -->
+          <div class="catalog-filters" role="group" aria-label="Filtrar por hobby">
+            <button type="button" class="filter-chip active" data-category="all">Todos</button>
+            <button type="button" class="filter-chip" data-category="gaming">Gaming</button>
+            <button type="button" class="filter-chip" data-category="arte">Arte</button>
+            <button type="button" class="filter-chip" data-category="mesa">Juegos de Mesa</button>
+            <button type="button" class="filter-chip" data-category="musica">Música</button>
+          </div>
+        </div>
+
+        <div class="products-grid" id="productsGrid">
+          
+          <!-- PRODUCTO 1: GAMING (Xbox Adaptive Controller - Slide 4) -->
+          <article class="product-card" data-category="gaming">
+            <span class="product-badge-stock">En Stock · Entrega 24/48h</span>
+            <div class="product-media">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Xbox_Adaptive_Controller_V%26A.JPG/640px-Xbox_Adaptive_Controller_V%26A.JPG" 
+                   alt="Xbox Adaptive Controller con grandes botones de activación y múltiples puertos de conexión asistiva jack 3.5mm" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Gaming & eSports</span>
+                <span class="product-rating">★ 4.9 (48)</span>
+              </div>
+              <h3 class="product-title">Xbox Adaptive Controller Base Pro</h3>
+              <span class="product-sku">SKU: HOB-GAM-001</span>
+              <p class="product-desc">Centro de control unificado con botones de gran tamaño táctil y 19 jacks de 3.5mm para pulsadores externos, pedales y joysticks.</p>
+              <ul class="product-specs-list">
+                <li><span>Fuerza de pulsación:</span> <strong>0.3 N</strong></li>
+                <li><span>Compatibilidad:</span> <strong>PC, Xbox, Switch (con adaptador)</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Precio</span>
+                  <span class="product-price">€89,99</span>
+                </div>
+                <button type="button" class="btn-add-cart" 
+                        onclick="addToCart('HOB-GAM-001', 'Xbox Adaptive Controller Base Pro', 89.99, 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Xbox_Adaptive_Controller_V%26A.JPG/640px-Xbox_Adaptive_Controller_V%26A.JPG')">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 2: ARTE (Adaptive Hand Strap & Brush - Slide 4) -->
+          <article class="product-card" data-category="arte">
+            <span class="product-badge-stock">Fabricación Ergocert</span>
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&auto=format&fit=crop&q=80" 
+                   alt="Juego de pinceles profesionales con mangos ergonómicos acolchados en estudio de pintura" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Arte & Pintura</span>
+                <span class="product-rating">★ 5.0 (31)</span>
+              </div>
+              <h3 class="product-title">Kit Universal Cuff + Pincel Asistido</h3>
+              <span class="product-sku">SKU: HOB-ART-002</span>
+              <p class="product-desc">Brazalete anatómico con velcro de ajuste y férula receptora universal que elimina la necesidad de cerrar la mano para pintar con fluidez.</p>
+              <ul class="product-specs-list">
+                <li><span>Talla de muñeca:</span> <strong>Ajustable (S / M / L)</strong></li>
+                <li><span>Material:</span> <strong>Neopreno hipoalergénico</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Precio</span>
+                  <span class="product-price">€34,50</span>
+                </div>
+                <button type="button" class="btn-add-cart" 
+                        onclick="addToCart('HOB-ART-002', 'Kit Universal Cuff + Pincel Asistido', 34.50, 'https://images.unsplash.com/photo-1460661419201-fd4cecdf8a8b?w=800&auto=format&fit=crop&q=80')">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 3: JUEGOS DE MESA (Sujetacartas Curvo - Slide 4 y 9) -->
+          <article class="product-card" data-category="mesa">
+            <span class="product-badge-stock">Superventas</span>
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1676482721022-b7a8d7fdaebc?w=800&auto=format&fit=crop&q=80" 
+                   alt="Mesa de juego con barajas de cartas y tablero en partida social comunitaria" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Juegos de Mesa</span>
+                <span class="product-rating">★ 4.8 (92)</span>
+              </div>
+              <h3 class="product-title">Sujetacartas Curvo Panorámico (Pack x2)</h3>
+              <span class="product-sku">SKU: HOB-TAB-003</span>
+              <p class="product-desc">Soporte horizontal curvo autoestable con base antideslizante para sostener naipes sin requerir fuerza en dedos ni manos. Ideal para jugar con amigos.</p>
+              <ul class="product-specs-list">
+                <li><span>Capacidad:</span> <strong>Hasta 20 naipes</strong></li>
+                <li><span>Base:</span> <strong>Silicona con peso anti-vuelco</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Precio</span>
+                  <span class="product-price">€22,00</span>
+                </div>
+                <button type="button" class="btn-add-cart" 
+                        onclick="addToCart('HOB-TAB-003', 'Sujetacartas Curvo Panorámico (Pack x2)', 22.00, 'https://images.unsplash.com/photo-1676482721022-b7a8d7fdaebc?w=800&auto=format&fit=crop&q=80')">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 4: PERSONALIZACIÓN (Personalised Grip Bulb - Slide 5) -->
+          <article class="product-card" data-category="arte">
+            <span class="product-badge-stock">Impresión 3D a medida</span>
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1741517669003-94a4cb80f793?w=800&auto=format&fit=crop&q=80" 
+                   alt="Impresora 3D de alta precisión imprimiendo prototipos ergonómicos y mangos adaptados para herramientas" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Grips Personalizados</span>
+                <span class="product-rating">★ 4.9 (19)</span>
+              </div>
+              <h3 class="product-title">Bulbo Ergonómico Adaptable para Pincel y Lápiz</h3>
+              <span class="product-sku">SKU: HOB-GRP-004</span>
+              <p class="product-desc">Mango con forma de pera optimizado para distribución de carga y descanso palmar. Compatible con pinceles, rotuladores y punteros capacitivos.</p>
+              <ul class="product-specs-list">
+                <li><span>Densidad:</span> <strong>Interior TPU amortiguador</strong></li>
+                <li><span>Diámetro:</span> <strong>Personalizable (40 - 65 mm)</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Precio</span>
+                  <span class="product-price">€18,90</span>
+                </div>
+                <button type="button" class="btn-add-cart" 
+                        onclick="addToCart('HOB-GRP-004', 'Bulbo Ergonómico Adaptable', 18.90, 'https://images.unsplash.com/photo-1741517669003-94a4cb80f793?w=800&auto=format&fit=crop&q=80')">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 5: MÚSICA (Instrument Stands - Slide 4 y 10) -->
+          <article class="product-card" data-category="musica">
+            <span class="product-badge-stock">Bajo Demanda</span>
+            <div class="product-media">
+              <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&auto=format&fit=crop&q=80" 
+                   alt="Instrumentos musicales y guitarra en estudio profesional de música con soportes articulados" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Música Inclusiva</span>
+                <span class="product-rating">★ 4.7 (14)</span>
+              </div>
+              <h3 class="product-title">Soporte Articulado para Instrumentos de Cuerda</h3>
+              <span class="product-sku">SKU: HOB-MUS-005</span>
+              <p class="product-desc">Brazo de anclaje para silla de ruedas o mesa que sostiene guitarras y ukeleles en el ángulo exacto para tocar sin cargar el peso del instrumento.</p>
+              <ul class="product-specs-list">
+                <li><span>Ajuste:</span> <strong>Rótula bloqueable de 360 grados</strong></li>
+                <li><span>Carga máxima:</span> <strong>Hasta 5 kg</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Precio</span>
+                  <span class="product-price">€74,00</span>
+                </div>
+                <button type="button" class="btn-add-cart" 
+                        onclick="addToCart('HOB-MUS-005', 'Soporte Articulado para Instrumentos', 74.00, 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=800&auto=format&fit=crop&q=80')">
+                  Añadir al Carrito
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN DE PERSONALIZACIÓN CORPORATIVA (Slide 5, 6 y 10)
+         ========================================================================== -->
+    <section class="custom-service-section" id="personalizacion" aria-labelledby="custom-title">
+      <div class="container custom-grid">
+        <div class="custom-content">
+          <div class="hero-badge" style="background:#FEF3C7; color:#92400E;">Servicio de Ingeniería Asistiva</div>
+          <h2 id="custom-title">Adaptación Personalizada para Casos Singulares</h2>
+          <p style="color:var(--text-muted); font-size:1.05rem;">
+            No existen dos cuerpos ni dos formas de jugar iguales. Trabajamos directamente con el usuario, su familia o su terapeuta ocupacional para prototipar piezas adaptadas con tecnología de fabricación digital.
+          </p>
+
+          <div class="custom-features">
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Ajuste dimensional milimétrico</h4>
+                <p>Medidas de empuñadura, palancas con mayor o menor recorrido y ángulo de apoyo.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Calibración de fuerza de accionamiento</h4>
+                <p>Desde micro-interruptores de 0.1 N hasta pulsadores de contacto por proximidad.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Red local de makers y talleres</h4>
+                <p>Fabricación de proximidad para reducir tiempos de entrega y costes de transporte.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario Formal de Cotización -->
+        <div class="custom-form-card">
+          <h3>Solicitud de Asesoramiento Técnico</h3>
+          <p>Un terapeuta o ingeniero de HOBBIGNITY evaluará tu caso sin compromiso en menos de 24 horas.</p>
+
+          <form id="quoteForm" onsubmit="handleQuoteSubmit(event)">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="q_name">Nombre y Apellido</label>
+                <input type="text" id="q_name" required placeholder="Ej. Martín González" />
+              </div>
+              <div class="form-field">
+                <label for="q_email">Correo Electrónico</label>
+                <input type="email" id="q_email" required placeholder="tu@correo.com" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="q_hobby">Hobby o Disciplina</label>
+                <select id="q_hobby" required>
+                  <option value="">Selecciona...</option>
+                  <option value="gaming">Gaming / Videojuegos competitivos</option>
+                  <option value="arte">Pintura / Ilustración / Escultura</option>
+                  <option value="mesa">Juegos de mesa / Cartas coleccionables</option>
+                  <option value="musica">Música / Percusión / Cuerda</option>
+                  <option value="deporte">Deportes adaptados / Rampas</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="q_type">Requerimiento Principal</label>
+                <select id="q_type">
+                  <option value="grip">Modificación de agarre o grosor</option>
+                  <option value="force">Reducción de fuerza de activación</option>
+                  <option value="mount">Soporte o brazo articulado</option>
+                  <option value="other">Desarrollo desde cero</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="q_notes">Describe las necesidades de movilidad o postura</label>
+              <textarea id="q_notes" rows="3" placeholder="Indica si requieres uso a una sola mano, debilidad palmar, espasticidad, etc."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width:100%;">Enviar Consulta a Ingeniería</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       DRAWER LATERAL DEL CARRITO FICTICIO
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <div class="cart-header">
+      <h3 id="cartDrawerTitle">
+        <span>🛒 Tu Cesta de Compra</span>
+        <span style="font-size:0.85rem; color:var(--text-light); font-weight:normal;" id="cartItemCountText">(0 productos)</span>
+      </h3>
+      <button type="button" class="cart-close-btn" onclick="closeCart()" aria-label="Cerrar carrito">&times;</button>
+    </div>
+
+    <!-- Lista reactiva de productos en el carrito -->
+    <div class="cart-body" id="cartItemsList">
+      <div class="cart-empty">
+        <span class="cart-empty-icon" aria-hidden="true">🛒</span>
+        <p><strong>Tu cesta está actualmente vacía</strong></p>
+        <p style="font-size:0.85rem; margin-top:0.5rem;">Explora nuestro catálogo para añadir dispositivos adaptados.</p>
+      </div>
+    </div>
+
+    <!-- Resumen y Checkout Ficticio -->
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-summary-line">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">€0,00</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Gastos de envío accesibles:</span>
+        <span style="color:var(--brand-green); font-weight:700;">GRATIS</span>
+      </div>
+      <div class="cart-total-line">
+        <span>Total:</span>
+        <span id="cartTotal">€0,00</span>
+      </div>
+
+      <button type="button" class="btn-checkout" onclick="openCheckoutModal()">
+        <span>Tramitar Pedido Seguro</span>
+        <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MODAL DE CHECKOUT FICTICIO -->
+  <div class="modal-backdrop" id="checkoutModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="checkout-modal">
+      <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
+      <h3 id="modalTitle" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem;">¡Pedido Simulado con Éxito!</h3>
+      <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.5rem;">
+        Gracias por apoyar la inclusión y la autonomía a través de <strong>HOBBIGNITY</strong>. Este es un entorno de demostración de e-commerce accesible.
+      </p>
+      
+      <div style="background:var(--bg-subtle); padding:1rem; border-radius:var(--radius-sm); font-size:0.85rem; text-align:left; margin-bottom:1.5rem;">
+        <p><strong>Referencia de orden:</strong> <span id="checkoutOrderRef">#HBN-78942</span></p>
+        <p><strong>Total facturado:</strong> <span id="checkoutTotalAmount">€0,00</span></p>
+        <p><strong>Plazo estimado:</strong> 24 a 48 horas laborales</p>
+      </div>
+
+      <button type="button" class="btn btn-primary" style="width:100%;" onclick="finishCheckout()">Cerrar y Vaciar Carrito</button>
+    </div>
+  </div>
+
+  <!-- AVISO TOAST ACCESIBLE -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <span id="toastMessage">Producto añadido a la cesta</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER CORPORATIVO (Slide 12)
+       ========================================================================== -->
+  <footer class="site-footer" id="filosofia">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 style="font-size:1.2rem;">HOBBIGNITY</h4>
+          <p style="margin-bottom:1rem; line-height:1.6;">
+            Iniciativa de comercio electrónico creada bajo el principio de que una vida digna exige el pleno ejercicio de la libertad, el ocio y la expresión personal.
+          </p>
+          <p style="font-size:0.8rem; color:#64748B;">
+            Inspirado en los ecosistemas globales de <em>AbleGamers</em> y <em>Makers Making Change</em>.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Soluciones</h4>
+          <ul>
+            <li><a href="#main-catalog">Mandos Asistivos para Gaming</a></li>
+            <li><a href="#main-catalog">Soportes Universales de Pintura</a></li>
+            <li><a href="#main-catalog">Sujetacartas & Juegos de Mesa</a></li>
+            <li><a href="#main-catalog">Ergonomía Instrumental</a></li>
+            <li><a href="#personalizacion">Fabricación 3D a Demanda</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Compromiso Ético</h4>
+          <ul>
+            <li><a href="#">Declaración de Accesibilidad</a></li>
+            <li><a href="#">Repositorio Abierto de Piezas</a></li>
+            <li><a href="#">Convenios con Centros Educativos</a></li>
+            <li><a href="#">Garantía de Reparabilidad</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto Corporativo</h4>
+          <p style="margin-bottom:0.5rem;"><strong>Soporte Técnico Especializado</strong></p>
+          <p>contacto@hobbignity.org</p>
+          <p style="margin-top:0.75rem;">Atención adaptada para personas con diversidad funcional.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 HOBBIGNITY Inc. Todos los derechos reservados.
+        </div>
+        <div class="credits-tag">
+          Proyecto E-Commerce · Grupo E: Agustín Bech · Adrián De Los Reyes · Eric Gallo
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       LÓGICA JAVASCRIPT: CARRITO FICTICIO, FILTROS Y ACCESIBILIDAD
+       ========================================================================== -->
+  <script>
+    /* --------------------------------------------------------------------------
+       ESTADO DEL CARRITO FICTICIO
+       -------------------------------------------------------------------------- */
+    let cart = [];
+
+    function openCart() {
+      document.getElementById('cartDrawer').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.getElementById('cartDrawer').focus();
+    }
+
+    function closeCart() {
+      document.getElementById('cartDrawer').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+    }
+
+    document.getElementById('openCartBtn').addEventListener('click', openCart);
+
+    // Cerrar drawer con tecla Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeCart();
+        document.getElementById('checkoutModal').classList.remove('open');
+      }
+    });
+
+    function addToCart(sku, title, price, img) {
+      const existing = cart.find(item => item.sku === sku);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ sku, title, price, img, qty: 1 });
+      }
+      renderCart();
+      showToast(`" ${title} " añadido a la cesta.`);
+      openCart();
+    }
+
+    function updateQty(sku, delta) {
+      const item = cart.find(i => i.sku === sku);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) {
+        removeFromCart(sku);
+      } else {
+        renderCart();
+      }
+    }
+
+    function removeFromCart(sku) {
+      cart = cart.filter(i => i.sku !== sku);
+      renderCart();
+    }
+
+    function renderCart() {
+      const container = document.getElementById('cartItemsList');
+      const badge = document.getElementById('cartCountBadge');
+      const countText = document.getElementById('cartItemCountText');
+      const footer = document.getElementById('cartFooter');
+
+      const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+      badge.textContent = totalItems;
+      countText.textContent = `(${totalItems} ${totalItems === 1 ? 'producto' : 'productos'})`;
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="cart-empty">
+            <span class="cart-empty-icon" aria-hidden="true">🛒</span>
+            <p><strong>Tu cesta está actualmente vacía</strong></p>
+            <p style="font-size:0.85rem; margin-top:0.5rem;">Explora nuestro catálogo para añadir dispositivos adaptados.</p>
+          </div>
+        `;
+        footer.style.display = 'none';
+        return;
+      }
+
+      footer.style.display = 'block';
+      let subtotal = 0;
+
+      container.innerHTML = cart.map(item => {
+        const itemTotal = item.price * item.qty;
+        subtotal += itemTotal;
+        return `
+          <div class="cart-item">
+            <img src="${item.img}" alt="${item.title}" class="cart-item-img" />
+            <div class="cart-item-info">
+              <h4 class="cart-item-title">${item.title}</h4>
+              <div class="cart-item-price">€${item.price.toFixed(2)}</div>
+              <div class="cart-item-qty">
+                <button type="button" class="cart-qty-btn" aria-label="Restar una unidad" onclick="updateQty('${item.sku}', -1)">-</button>
+                <span class="cart-qty-val" aria-label="Cantidad">${item.qty}</span>
+                <button type="button" class="cart-qty-btn" aria-label="Añadir una unidad" onclick="updateQty('${item.sku}', 1)">+</button>
+              </div>
+              <button type="button" class="cart-item-del" onclick="removeFromCart('${item.sku}')">Eliminar</button>
+            </div>
+            <div style="font-weight:700; font-size:0.95rem;">
+              €${itemTotal.toFixed(2)}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('cartSubtotal').textContent = `€${subtotal.toFixed(2)}`;
+      document.getElementById('cartTotal').textContent = `€${subtotal.toFixed(2)}`;
+    }
+
+    function openCheckoutModal() {
+      const totalText = document.getElementById('cartTotal').textContent;
+      document.getElementById('checkoutTotalAmount').textContent = totalText;
+      document.getElementById('checkoutOrderRef').textContent = `#HBN-${Math.floor(10000 + Math.random() * 90000)}`;
+      closeCart();
+      document.getElementById('checkoutModal').classList.add('open');
+    }
+
+    function finishCheckout() {
+      cart = [];
+      renderCart();
+      document.getElementById('checkoutModal').classList.remove('open');
+      showToast('Pedido procesado satisfactoriamente.');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastNotice');
+      const toastText = document.getElementById('toastMessage');
+      toastText.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3500);
+    }
+
+    function handleQuoteSubmit(e) {
+      e.preventDefault();
+      alert('¡Gracias por su consulta técnica! Un especialista del Grupo E se comunicará para revisar las especificaciones ergonómicas.');
+      document.getElementById('quoteForm').reset();
+    }
+
+    /* --------------------------------------------------------------------------
+       FILTROS DE PRODUCTO EN CATÁLOGO
+       -------------------------------------------------------------------------- */
+    const filterChips = document.querySelectorAll('.filter-chip');
+    const productCards = document.querySelectorAll('.product-card');
+
+    filterChips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        filterChips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+        const cat = chip.dataset.category;
+
+        productCards.forEach(card => {
+          if (cat === 'all' || card.dataset.category === cat) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Enlaces del menú superior para filtrar
+    document.querySelectorAll('.header-nav a[data-filter]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const cat = link.dataset.filter;
+        const matchingChip = document.querySelector(`.filter-chip[data-category="${cat}"]`);
+        if (matchingChip) {
+          matchingChip.click();
+        }
+      });
+    });
+
+    // Filtro por buscador
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      productCards.forEach(card => {
+        const title = card.querySelector('.product-title').textContent.toLowerCase();
+        const desc = card.querySelector('.product-desc').textContent.toLowerCase();
+        if (title.includes(query) || desc.includes(query)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
+    /* --------------------------------------------------------------------------
+       BARRA DE ACCESIBILIDAD (A11Y)
+       -------------------------------------------------------------------------- */
+    let rootFontSize = 16;
+    document.getElementById('a11y-increase').addEventListener('click', () => {
+      if (rootFontSize < 22) {
+        rootFontSize += 2;
+        document.documentElement.style.setProperty('--font-scale', rootFontSize + 'px');
+      }
+    });
+
+    document.getElementById('a11y-decrease').addEventListener('click', () => {
+      if (rootFontSize > 13) {
+        rootFontSize -= 2;
+        document.documentElement.style.setProperty('--font-scale', rootFontSize + 'px');
+      }
+    });
+
+    const contrastBtn = document.getElementById('a11y-contrast');
+    contrastBtn.addEventListener('click', () => {
+      const active = document.body.classList.toggle('high-contrast');
+      contrastBtn.setAttribute('aria-pressed', active);
+    });
+
+    const dyslexiaBtn = document.getElementById('a11y-dyslexia');
+    dyslexiaBtn.addEventListener('click', () => {
+      const active = document.body.classList.toggle('dyslexia-mode');
+      dyslexiaBtn.setAttribute('aria-pressed', active);
+    });
+
+    // Lector de voz accesible (Web Speech API)
+    const speechBtn = document.getElementById('a11y-speech');
+    let isSpeaking = false;
+    speechBtn.addEventListener('click', () => {
+      if (!('speechSynthesis' in window)) {
+        alert('Su navegador no soporta la función de lectura de voz.');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        speechBtn.textContent = '🔊 Escuchar';
+      } else {
+        const text = document.getElementById('main-content').innerText;
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = 'es-ES';
+        msg.rate = 1.0;
+        msg.onend = () => {
+          isSpeaking = false;
+          speechBtn.textContent = '🔊 Escuchar';
+        };
+        window.speechSynthesis.speak(msg);
+        isSpeaking = true;
+        speechBtn.textContent = '⏹️ Parar';
+      }
+    });
+  </script>
+</body>
+</html>
