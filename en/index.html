@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>HOBBIGNITY | Adaptive Leisure and Independence Store</title>
+  <meta name="description" content="Adaptive products for gaming, art, board games and music. Discover Hobbignity and custom solutions that help you enjoy your hobbies independently." />
+  <link rel="canonical" href="https://adrian120401.github.io/Hobbignity/en/" />
+  <link rel="alternate" hreflang="es" href="https://adrian120401.github.io/Hobbignity/es/" />
+  <link rel="alternate" hreflang="en" href="https://adrian120401.github.io/Hobbignity/en/" />
+  <link rel="alternate" hreflang="x-default" href="https://adrian120401.github.io/Hobbignity/es/" />
+  <link rel="icon" href="../assets/favicon.ico" sizes="16x16 32x32 48x48" />
+  <link rel="icon" type="image/png" sizes="96x96" href="../assets/favicon-96.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="es_UY" />
+  <meta property="og:site_name" content="Hobbignity" />
+  <meta property="og:title" content="Hobbignity | Adaptive leisure and independence" />
+  <meta property="og:description" content="Adaptive products for gaming, art, board games and music. Custom solutions that help you enjoy your hobbies independently." />
+  <meta property="og:url" content="https://adrian120401.github.io/Hobbignity/en/" />
+  <meta property="og:image" content="https://adrian120401.github.io/Hobbignity/assets/logo.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:image:alt" content="Hobbignity logo" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Hobbignity | Adaptive leisure and independence" />
+  <meta name="twitter:description" content="Adaptive products for gaming, art, board games and music. Custom solutions that help you enjoy your hobbies independently." />
+  <meta name="twitter:image" content="https://adrian120401.github.io/Hobbignity/assets/logo.png" />
+  <meta name="twitter:image:alt" content="Hobbignity logo" />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "OnlineStore",
+      "@id": "https://adrian120401.github.io/Hobbignity/#organization",
+      "name": "Hobbignity",
+      "url": "https://adrian120401.github.io/Hobbignity/en/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://adrian120401.github.io/Hobbignity/assets/logo.png",
+        "width": 512,
+        "height": 512
+      }
+    }
+  </script>
+
+  <!-- Tipografía Corporativa Formal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../styles.css">
+  <script src="../app.js" defer></script>
+</head>
+<body>
+
+  <!-- Salto rápido para accesibilidad por teclado -->
+  <a href="#main-catalog" class="skip-link">Skip to the product catalog</a>
+
+  <!-- ==========================================================================
+       TOPBAR UTILITY & A11Y TOOLBAR
+       ========================================================================== */ -->
+  <div class="top-utility-bar">
+    <div class="container">
+      <div class="utility-trust">
+        <span>Assistive Ergonomics Certification</span>
+        <span>Accessible shipping with a 30-day trial</span>
+        <span>Group E · Commerce with Social Impact</span>
+      </div>
+
+      <div class="a11y-controls" role="region" aria-label="Accessibility settings">
+        <button type="button" class="a11y-btn" id="a11y-decrease" aria-label="Decrease text size">A−</button>
+        <button type="button" class="a11y-btn" id="a11y-increase" aria-label="Increase text size">A+</button>
+        <button type="button" class="a11y-btn" id="a11y-contrast" aria-pressed="false" aria-label="High contrast mode">Contrast</button>
+        <button type="button" class="a11y-btn" id="a11y-dyslexia" aria-pressed="false" aria-label="Dyslexia-friendly reading mode">Reading Font</button>
+        <button type="button" class="a11y-btn" id="a11y-speech" aria-pressed="false">Listen</button>
+      </div>
+      <nav class="language-switcher" aria-label="Language">
+        <a href="../es/" lang="es" hreflang="es" data-language="es" >Español</a>
+        <a href="../en/" lang="en" hreflang="en" data-language="en" aria-current="page">English</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       CABECERA CORPORATIVA DE E-COMMERCE
+       ========================================================================== -->
+  <header class="site-header">
+    <div class="header-main">
+      <div class="container">
+        <!-- Logo Corporativo -->
+        <a href="#" class="brand-logo" aria-label="Hobbignity Store - Home">
+          <img class="brand-logo-mark" src="../assets/logo.svg" alt="" width="64" height="64" decoding="async" />
+          <div class="brand-logo-text">
+            <span class="name">HOBBIGNITY</span>
+            <span class="tag">E-Commerce for a decent life</span>
+          </div>
+        </a>
+
+        <!-- Barra de Búsqueda Comercial -->
+        <form class="header-search" id="catalogSearch" role="search" action="#main-catalog">
+          <input type="search" id="searchInput" placeholder="Search products" aria-label="Search the store">
+          <button type="submit" class="search-submit" aria-label="View results">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z"/></svg>
+          </button>
+        </form>
+
+        <!-- Acciones: Mi Cuenta y Carrito Ficticio -->
+        <div class="header-actions">
+          <a href="#personalizacion" class="action-btn" aria-label="Request a custom adaptation">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8zm1-13h-2v6h6v-2h-4z"/></svg>
+            <span>Custom Made</span>
+          </a>
+
+          <!-- Botón de Apertura de Carrito -->
+          <button type="button" class="action-btn" id="openCartBtn" aria-label="View shopping cart" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24"><path d="M21.822 7.431A1 1 0 0 0 21 7H7.333L6.179 4.23A1.994 1.994 0 0 0 4.333 3H2v2h2.333l4.744 11.385A1 1 0 0 0 10 17h8c.417 0 .79-.259.937-.648l3-8a1 1 0 0 0-.115-.921zM17.307 15h-6.64l-2.5-6h11.39l-2.25 6zM10 19a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4z"/></svg>
+            <span>Cart</span>
+            <span class="cart-counter" id="cartCountBadge" aria-live="polite">0</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación por Categorías -->
+    <nav class="header-nav" aria-label="Product categories">
+      <div class="container">
+        <ul>
+          <li><a href="#main-catalog" class="active" data-filter="all" aria-current="true">All Products</a></li>
+          <li><a href="#main-catalog" data-filter="gaming">Gaming &amp; Controllers</a></li>
+          <li><a href="#main-catalog" data-filter="arte">Art &amp; Easy-Grip Tools</a></li>
+          <li><a href="#main-catalog" data-filter="mesa">Board Games</a></li>
+          <li><a href="#main-catalog" data-filter="musica">Music &amp; Instruments</a></li>
+          <li><a href="#filosofia">Ethics &amp; Open Manufacturing</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ==========================================================================
+         HERO BANNER CORPORATIVO
+         ========================================================================== -->
+    <section class="hero-banner" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-info">
+          <h1 id="hero-title" class="hero-title">Leisure without barriers, independence guaranteed.</h1>
+          <p class="hero-credit">Assistive Technology · Group E</p>
+          <p class="hero-desc">
+            We supply and customize expertly engineered adaptive products for video games, art, board games and music. Human dignity includes the freedom to enjoy your leisure time.
+          </p>
+          <div class="hero-actions">
+            <a href="#main-catalog" class="btn btn-primary">Shop Adaptive Products</a>
+            <a href="#personalizacion" class="btn btn-outline">Request a Custom Adaptation</a>
+          </div>
+        </div>
+
+        <!-- Fotografía Real: Fabricación y Adaptación Ergonométrica -->
+        <div class="hero-media">
+          <div class="hero-image-card">
+            <img src="../assets/images/taller-asistivo.jpg"
+                 alt="Engineer in a maker workshop using CAD software and a 3D printer to create assistive devices and ergonomic grips" />
+          </div>
+          <div class="hero-caption">
+            <strong>&quot;One hobby. Many ways to enjoy it.&quot;</strong>
+            <span>Co-designed with users and therapists.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Franja de Valores de Confianza Comercial -->
+    <section class="trust-strip" aria-label="Shopping benefits">
+      <div class="container trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 6a4 4 0 0 0-5 5l-5 5a2 2 0 1 0 3 3l5-5a4 4 0 0 0 5-5l-3 3-2-2 2-4Z"/></svg></div>
+          <div>
+            <h4>Right to Repair</h4>
+            <p>Open-source spare parts and 3D-printable files.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 12V6a1.5 1.5 0 0 1 3 0v4-6a1.5 1.5 0 0 1 3 0v6-4a1.5 1.5 0 0 1 3 0v5-2a1.5 1.5 0 0 1 3 0v5a7 7 0 0 1-7 7h-1a6 6 0 0 1-5-3l-3-5a1.5 1.5 0 0 1 2-2l2 1Z"/></svg></div>
+          <div>
+            <h4>Minimal Activation Force</h4>
+            <p>Ultra-sensitive mechanisms for limited muscle mobility.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2m1-15a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 4v2"/></svg></div>
+          <div>
+            <h4>Open Community</h4>
+            <p>Inspired by open networks such as AbleGamers and Makers Making Change.</p>
+          </div>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m12 3 8 4v10l-8 4-8-4V7l8-4Zm0 9 8-5m-8 5L4 7m8 5v9m-4-16 8 5v4"/></svg></div>
+          <div>
+            <h4>Safe Shipping &amp; Trials</h4>
+            <p>A 30-day trial to ensure the right ergonomic fit at home.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CATÁLOGO COMERCIAL (Slide 4, 5 y 8)
+         ========================================================================== -->
+    <section class="catalog-section" id="main-catalog" tabindex="-1" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 id="catalog-title">Official Adaptive Products Catalog</h2>
+            <p>Ergonomic devices, mounts and assistive tools, available ready-made or customized.</p>
+          </div>
+
+          <!-- Filtros de Categoría -->
+          <div class="catalog-filters" role="group" aria-label="Filter by hobby">
+            <button type="button" class="filter-chip active" data-category="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-chip" data-category="gaming" aria-pressed="false">Gaming</button>
+            <button type="button" class="filter-chip" data-category="arte" aria-pressed="false">Art</button>
+            <button type="button" class="filter-chip" data-category="mesa" aria-pressed="false">Board Games</button>
+            <button type="button" class="filter-chip" data-category="musica" aria-pressed="false">Music</button>
+          </div>
+        </div>
+
+        <p class="catalog-status" id="catalogStatus" role="status">5 products</p>
+        <div class="products-grid" id="productsGrid">
+
+          <!-- PRODUCTO 1: GAMING (Xbox Adaptive Controller - Slide 4) -->
+          <article class="product-card" data-category="gaming">
+            <span class="product-badge-stock">In Stock · Delivery in 24–48h</span>
+            <div class="product-media">
+              <img src="../assets/images/xbox-adaptive-controller.jpg"
+                   alt="Xbox Adaptive Controller with large activation buttons and multiple 3.5 mm ports for assistive devices" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Gaming & eSports</span>
+                <span class="product-rating">★ 4.9 (48)</span>
+              </div>
+              <h3 class="product-title">Xbox Adaptive Controller Base Pro</h3>
+              <span class="product-sku">SKU: HOB-GAM-001</span>
+              <p class="product-desc">Unified control hub with large tactile buttons and 19 3.5 mm jacks for external switches, pedals and joysticks.</p>
+              <ul class="product-specs-list">
+                <li><span>Activation force:</span> <strong>0.3 N</strong></li>
+                <li><span>Compatibility:</span> <strong>PC, Xbox, Switch (with adapter)</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Price</span>
+                  <span class="product-price">€89.99</span>
+                </div>
+                <button type="button" class="btn-add-cart" data-sku="HOB-GAM-001" data-price="89.99">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 2: ARTE (Adaptive Hand Strap & Brush - Slide 4) -->
+          <article class="product-card" data-category="arte">
+            <span class="product-badge-stock">Ergocert Manufacturing</span>
+            <div class="product-media">
+              <img src="../assets/images/kit-pintura.jpg"
+                   alt="Professional paintbrush set with padded ergonomic handles in an art studio" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Art &amp; Painting</span>
+                <span class="product-rating">★ 5.0 (31)</span>
+              </div>
+              <h3 class="product-title">Universal Cuff + Adaptive Paintbrush Kit</h3>
+              <span class="product-sku">SKU: HOB-ART-002</span>
+              <p class="product-desc">Contoured cuff with an adjustable hook-and-loop strap and a universal tool holder, allowing fluid painting without gripping the brush.</p>
+              <ul class="product-specs-list">
+                <li><span>Wrist size:</span> <strong>Adjustable (S / M / L)</strong></li>
+                <li><span>Material:</span> <strong>Hypoallergenic neoprene</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Price</span>
+                  <span class="product-price">€34.50</span>
+                </div>
+                <button type="button" class="btn-add-cart" data-sku="HOB-ART-002" data-price="34.50">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 3: JUEGOS DE MESA (Sujetacartas Curvo - Slide 4 y 9) -->
+          <article class="product-card" data-category="mesa">
+            <span class="product-badge-stock">Bestseller</span>
+            <div class="product-media">
+              <img src="../assets/images/juegos-de-mesa.jpg"
+                   alt="Table with playing cards and a board game during a community game session" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Board Games</span>
+                <span class="product-rating">★ 4.8 (92)</span>
+              </div>
+              <h3 class="product-title">Panoramic Curved Card Holder (Pack of 2)</h3>
+              <span class="product-sku">SKU: HOB-TAB-003</span>
+              <p class="product-desc">Stable curved horizontal holder with a non-slip base that holds playing cards without requiring finger or hand strength. Ideal for playing with friends.</p>
+              <ul class="product-specs-list">
+                <li><span>Capacity:</span> <strong>Up to 20 cards</strong></li>
+                <li><span>Base:</span> <strong>Weighted, tip-resistant silicone</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Price</span>
+                  <span class="product-price">€22.00</span>
+                </div>
+                <button type="button" class="btn-add-cart" data-sku="HOB-TAB-003" data-price="22.00">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 4: PERSONALIZACIÓN (Personalised Grip Bulb - Slide 5) -->
+          <article class="product-card" data-category="arte">
+            <span class="product-badge-stock">Custom 3D Printing</span>
+            <div class="product-media">
+              <img src="../assets/images/agarre-ergonomico.jpg"
+                   alt="High-precision 3D printer producing ergonomic prototypes and adaptive tool handles" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Custom Grips</span>
+                <span class="product-rating">★ 4.9 (19)</span>
+              </div>
+              <h3 class="product-title">Adaptive Ergonomic Grip for Brushes and Pencils</h3>
+              <span class="product-sku">SKU: HOB-GRP-004</span>
+              <p class="product-desc">Pear-shaped handle optimized to distribute pressure and support the palm. Compatible with paintbrushes, markers and capacitive styluses.</p>
+              <ul class="product-specs-list">
+                <li><span>Density:</span> <strong>Cushioning TPU core</strong></li>
+                <li><span>Diameter:</span> <strong>Customizable (40–65 mm)</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Price</span>
+                  <span class="product-price">€18.90</span>
+                </div>
+                <button type="button" class="btn-add-cart" data-sku="HOB-GRP-004" data-price="18.90">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRODUCTO 5: MÚSICA (Instrument Stands - Slide 4 y 10) -->
+          <article class="product-card" data-category="musica">
+            <span class="product-badge-stock">Made to Order</span>
+            <div class="product-media">
+              <img src="../assets/images/instrumentos.jpg"
+                   alt="Musical instruments and a guitar with articulated stands in a professional music studio" />
+            </div>
+            <div class="product-body">
+              <div class="product-meta">
+                <span class="product-category">Inclusive Music</span>
+                <span class="product-rating">★ 4.7 (14)</span>
+              </div>
+              <h3 class="product-title">Articulated Mount for String Instruments</h3>
+              <span class="product-sku">SKU: HOB-MUS-005</span>
+              <p class="product-desc">Mounting arm for a wheelchair or table that holds guitars and ukuleles at the right playing angle, supporting the weight of the instrument.</p>
+              <ul class="product-specs-list">
+                <li><span>Adjustment:</span> <strong>Lockable 360-degree ball joint</strong></li>
+                <li><span>Maximum load:</span> <strong>Up to 5 kg</strong></li>
+              </ul>
+              <div class="product-price-row">
+                <div class="price-wrap">
+                  <span class="price-label">Price</span>
+                  <span class="product-price">€74.00</span>
+                </div>
+                <button type="button" class="btn-add-cart" data-sku="HOB-MUS-005" data-price="74.00">
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECCIÓN DE PERSONALIZACIÓN CORPORATIVA (Slide 5, 6 y 10)
+         ========================================================================== -->
+    <section class="custom-service-section" id="personalizacion" aria-labelledby="custom-title">
+      <div class="container custom-grid">
+        <div class="custom-content">
+          <h2 id="custom-title">Custom Adaptations for Individual Needs</h2>
+          <p class="service-label">Assistive Engineering Service</p>
+          <p class="service-desc">
+            No two bodies or ways of playing are alike. We work directly with users, their families or occupational therapists to prototype adaptive parts using digital manufacturing technology.
+          </p>
+
+          <div class="custom-features">
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Millimeter-precise sizing</h4>
+                <p>Grip dimensions, longer or shorter lever travel and support angles.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Activation force calibration</h4>
+                <p>From 0.1 N microswitches to proximity-activated switches.</p>
+              </div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-dot"></div>
+              <div>
+                <h4>Local maker and workshop network</h4>
+                <p>Local manufacturing to reduce lead times and shipping costs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario Formal de Cotización -->
+        <div class="custom-form-card">
+          <h3>Request Technical Advice</h3>
+          <p>A HOBBIGNITY therapist or engineer will review your needs within 24 hours, with no obligation.</p>
+
+          <form id="quoteForm">
+            <div class="form-row">
+              <div class="form-field">
+                <label for="q_name">Full Name</label>
+                <input type="text" id="q_name" required placeholder="e.g. Alex Smith" />
+              </div>
+              <div class="form-field">
+                <label for="q_email">Email Address</label>
+                <input type="email" id="q_email" required placeholder="you@example.com" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="q_hobby">Hobby or Activity</label>
+                <select id="q_hobby" required>
+                  <option value="">Select...</option>
+                  <option value="gaming">Gaming / Competitive video games</option>
+                  <option value="arte">Painting / Illustration / Sculpture</option>
+                  <option value="mesa">Board games / Trading cards</option>
+                  <option value="musica">Music / Percussion / Strings</option>
+                  <option value="deporte">Adaptive sports / Ramps</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="q_type">Primary Requirement</label>
+                <select id="q_type">
+                  <option value="grip">Grip or handle thickness modification</option>
+                  <option value="force">Reduced activation force</option>
+                  <option value="mount">Mount or articulated arm</option>
+                  <option value="other">Design from scratch</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="q_notes">Describe your mobility or positioning needs</label>
+              <textarea id="q_notes" rows="3" placeholder="Let us know about one-handed use, reduced grip strength, spasticity or other requirements."></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">Send Engineering Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       DRAWER LATERAL DEL CARRITO FICTICIO
+       ========================================================================== -->
+  <div class="cart-drawer-overlay" id="cartOverlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" inert role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+    <div class="cart-header">
+      <h3 id="cartDrawerTitle">
+        <span>Your Shopping Cart</span>
+        <span class="cart-count" id="cartItemCountText">(0 products)</span>
+      </h3>
+      <button type="button" class="cart-close-btn" aria-label="Close cart">&times;</button>
+    </div>
+
+    <!-- Lista reactiva de productos en el carrito -->
+    <div class="cart-body" id="cartItemsList">
+      <div class="cart-empty">
+        <p><strong>Your cart is currently empty</strong></p>
+        <p class="cart-empty-hint">Explore our catalog to add adaptive devices.</p>
+      </div>
+    </div>
+    <template id="cartItemTemplate">
+      <div class="cart-item">
+        <img class="cart-item-img" alt="">
+        <div class="cart-item-info">
+          <h4 class="cart-item-title"></h4>
+          <div class="cart-item-price"></div>
+          <div class="cart-item-qty">
+            <button type="button" class="cart-qty-btn" data-cart-action="decrease" aria-label="Decrease quantity by one">−</button>
+            <span class="cart-qty-val"></span>
+            <button type="button" class="cart-qty-btn" data-cart-action="increase" aria-label="Increase quantity by one">+</button>
+          </div>
+          <button type="button" class="cart-item-del" data-cart-action="remove">Remove</button>
+        </div>
+        <div class="cart-item-total"></div>
+      </div>
+    </template>
+
+    <!-- Resumen y Checkout Ficticio -->
+    <div class="cart-footer" id="cartFooter" hidden>
+      <div class="cart-summary-line">
+        <span>Subtotal:</span>
+        <span id="cartSubtotal">€0.00</span>
+      </div>
+      <div class="cart-summary-line">
+        <span>Accessible shipping:</span>
+        <span class="shipping-free">FREE</span>
+      </div>
+      <div class="cart-total-line">
+        <span>Total:</span>
+        <span id="cartTotal">€0.00</span>
+      </div>
+
+      <button type="button" class="btn-checkout">
+        <span>Secure Checkout</span>
+        <span>→</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MODAL DE CHECKOUT FICTICIO -->
+  <div class="modal-backdrop" id="checkoutModal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="checkout-modal">
+      <h3 id="modalTitle">Demo Order Successful!</h3>
+      <p class="checkout-desc">
+        Thank you for supporting inclusion and independence through <strong>HOBBIGNITY</strong>. This is an accessible e-commerce demonstration.
+      </p>
+
+      <div class="checkout-summary">
+        <p><strong>Order reference:</strong> <span id="checkoutOrderRef">#HBN-78942</span></p>
+        <p><strong>Order total:</strong> <span id="checkoutTotalAmount">€0.00</span></p>
+        <p><strong>Estimated delivery:</strong> 24 to 48 business hours</p>
+      </div>
+
+      <button type="button" class="btn btn-primary btn-block">Close and Empty Cart</button>
+    </div>
+  </div>
+
+  <!-- AVISO TOAST ACCESIBLE -->
+  <div class="toast-notice" id="toastNotice" role="status" aria-live="polite">
+    <span id="toastMessage">Product added to cart</span>
+  </div>
+
+  <!-- ==========================================================================
+       FOOTER CORPORATIVO (Slide 12)
+       ========================================================================== -->
+  <footer class="site-footer" id="filosofia">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="#" class="brand-logo footer-brand" aria-label="Hobbignity - Back to home">
+            <img class="brand-logo-mark" src="../assets/logo.svg" alt="" width="64" height="64" loading="lazy" decoding="async" />
+            <span class="brand-logo-text">
+              <span class="name">HOBBIGNITY</span>
+              <span class="tag">E-Commerce for a decent life</span>
+            </span>
+          </a>
+          <p class="footer-intro">
+            An e-commerce initiative founded on the principle that a dignified life requires the full exercise of freedom, leisure and personal expression.
+          </p>
+          <p class="footer-inspiration">
+            Inspired by the global ecosystems of <em>AbleGamers</em> and <em>Makers Making Change</em>.
+          </p>
+          <p class="footer-photo-credit">
+            Xbox controller photo by <a href="https://commons.wikimedia.org/wiki/File:Xbox_Adaptive_Controller_V%26A.JPG">Geni</a>
+            (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>).
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Solutions</h4>
+          <ul>
+            <li><a href="#main-catalog">Adaptive Gaming Controllers</a></li>
+            <li><a href="#main-catalog">Universal Painting Supports</a></li>
+            <li><a href="#main-catalog">Card Holders &amp; Board Games</a></li>
+            <li><a href="#main-catalog">Instrument Ergonomics</a></li>
+            <li><a href="#personalizacion">On-Demand 3D Manufacturing</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Ethical Commitment</h4>
+          <ul>
+            <li><a href="#">Accessibility Statement</a></li>
+            <li><a href="#">Open Parts Repository</a></li>
+            <li><a href="#">Educational Partnerships</a></li>
+            <li><a href="#">Repairability Guarantee</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Corporate Contact</h4>
+          <p class="footer-contact-title"><strong>Specialist Technical Support</strong></p>
+          <p>contacto@hobbignity.org</p>
+          <p class="footer-contact-note">Accessible support for people with disabilities.</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          © 2026 HOBBIGNITY Inc. All rights reserved.
+        </div>
+        <div class="credits-tag">
+          E-Commerce Project · Group E: Agustín Bech · Adrián De Los Reyes · Eric Gallo
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

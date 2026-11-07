@@ -1,4 +1,37 @@
 const root = document.documentElement;
+const language = root.lang === 'en' ? 'en' : 'es';
+const messages = {
+  es: {
+    noProducts: 'No hay productos que coincidan. Probá otra búsqueda o cambiá de categoría.',
+    productCount: count => `${count} ${count === 1 ? 'producto' : 'productos'}`,
+    listen: 'Escuchar',
+    stop: 'Parar',
+    speechUnavailable: 'Su navegador no soporta la función de lectura de voz.',
+    added: title => `«${title}» añadido a la cesta.`,
+    orderComplete: 'Pedido procesado satisfactoriamente.',
+    quoteReceived: '¡Gracias por su consulta técnica! Un especialista del Grupo E se comunicará para revisar las especificaciones ergonómicas.'
+  },
+  en: {
+    noProducts: 'No matching products. Try another search or change the category.',
+    productCount: count => `${count} ${count === 1 ? 'product' : 'products'}`,
+    listen: 'Listen',
+    stop: 'Stop',
+    speechUnavailable: 'Your browser does not support text-to-speech.',
+    added: title => `“${title}” added to your cart.`,
+    orderComplete: 'Order processed successfully.',
+    quoteReceived: 'Thank you for your technical inquiry! A Group E specialist will contact you to review your ergonomic requirements.'
+  }
+}[language];
+
+// Keep the current section and query when moving between language URLs.
+for (const link of document.querySelectorAll('[data-language]')) {
+  link.addEventListener('click', () => {
+    const destination = new URL(link.href);
+    destination.search = window.location.search;
+    destination.hash = window.location.hash;
+    link.href = destination.href;
+  });
+}
 const productsGrid = document.getElementById('productsGrid');
 const productCards = [...productsGrid.querySelectorAll('.product-card')];
 const filterChips = document.querySelectorAll('.filter-chip');
@@ -34,8 +67,8 @@ function updateCatalog() {
   }
 
   const result = visibleCount === 0
-    ? 'No hay productos que coincidan. Probá otra búsqueda o cambiá de categoría.'
-    : `${visibleCount} ${visibleCount === 1 ? 'producto' : 'productos'}`;
+    ? messages.noProducts
+    : messages.productCount(visibleCount);
   if (catalogStatus.textContent !== result) catalogStatus.textContent = result;
 }
 
@@ -100,13 +133,13 @@ let speech;
 
 function stopSpeech() {
   speech = undefined;
-  speechButton.textContent = 'Escuchar';
+  speechButton.textContent = messages.listen;
   speechButton.setAttribute('aria-pressed', 'false');
 }
 
 speechButton.addEventListener('click', () => {
   if (!('speechSynthesis' in window)) {
-    alert('Su navegador no soporta la función de lectura de voz.');
+    alert(messages.speechUnavailable);
     return;
   }
 
@@ -117,12 +150,12 @@ speechButton.addEventListener('click', () => {
   }
 
   const message = new SpeechSynthesisUtterance(document.getElementById('main-content').innerText);
-  message.lang = 'es-ES';
+  message.lang = language === 'en' ? 'en-US' : 'es-ES';
   message.onend = message.onerror = () => {
     if (speech === message) stopSpeech();
   };
   speech = message;
-  speechButton.textContent = 'Parar';
+  speechButton.textContent = messages.stop;
   speechButton.setAttribute('aria-pressed', 'true');
   window.speechSynthesis.speak(message);
 });
@@ -165,7 +198,7 @@ function closeCheckout() {
 }
 
 function formatPrice(amount) {
-  return `€${amount.toFixed(2).replace('.', ',')}`;
+  return `€${language === 'es' ? amount.toFixed(2).replace('.', ',') : amount.toFixed(2)}`;
 }
 
 function renderCart() {
@@ -191,10 +224,41 @@ function renderCart() {
   cartFooter.hidden = cart.size === 0;
   document.getElementById('cartCountBadge').textContent = totalItems;
   document.getElementById('cartItemCountText').textContent =
-    `(${totalItems} ${totalItems === 1 ? 'producto' : 'productos'})`;
+    `(${messages.productCount(totalItems)})`;
   document.getElementById('cartSubtotal').textContent = formatPrice(subtotal);
   document.getElementById('cartTotal').textContent = formatPrice(subtotal);
+  try {
+    sessionStorage.setItem('hobbignity-cart', JSON.stringify(
+      [...cart.values()].map(({ sku, quantity }) => ({ sku, quantity }))
+    ));
+  } catch {
+    // The cart still works when browser storage is unavailable.
+  }
 }
+
+function restoreCart() {
+  try {
+    const saved = JSON.parse(sessionStorage.getItem('hobbignity-cart') ?? '[]');
+    if (!Array.isArray(saved)) return;
+    for (const item of saved) {
+      if (!item || !Number.isSafeInteger(item.quantity) || item.quantity < 1) continue;
+      const card = productCards.find(card => card.querySelector('.btn-add-cart').dataset.sku === item.sku);
+      if (!card) continue;
+      cart.set(item.sku, {
+        sku: item.sku,
+        quantity: item.quantity,
+        title: card.querySelector('.product-title').textContent.trim(),
+        price: Number(card.querySelector('.btn-add-cart').dataset.price),
+        image: card.querySelector('img').src
+      });
+    }
+  } catch {
+    // Ignore unavailable storage or invalid saved data.
+  }
+}
+
+restoreCart();
+renderCart();
 
 function showToast(message) {
   toast.classList.add('show');
@@ -221,7 +285,7 @@ productsGrid.addEventListener('click', event => {
   }
   renderCart();
   openCart(button);
-  showToast(`«${title}» añadido a la cesta.`);
+  showToast(messages.added(title));
 });
 
 cartItems.addEventListener('click', event => {
@@ -251,7 +315,7 @@ finishCheckoutButton.addEventListener('click', () => {
   cart.clear();
   renderCart();
   closeCheckout();
-  showToast('Pedido procesado satisfactoriamente.');
+  showToast(messages.orderComplete);
 });
 
 document.addEventListener('keydown', event => {
@@ -279,6 +343,6 @@ document.addEventListener('keydown', event => {
 
 document.getElementById('quoteForm').addEventListener('submit', event => {
   event.preventDefault();
-  alert('¡Gracias por su consulta técnica! Un especialista del Grupo E se comunicará para revisar las especificaciones ergonómicas.');
+  alert(messages.quoteReceived);
   event.currentTarget.reset();
 });
