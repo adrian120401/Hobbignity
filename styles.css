@@ -260,23 +260,20 @@ header.site-header {
   gap: 0.75rem;
   text-decoration: none;
   color: var(--brand-blue);
+  max-width: 100%;
 }
 .brand-logo-mark {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 4rem;
+  height: 4rem;
   flex: none;
-  background: var(--brand-blue);
   border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--on-accent);
-  font-weight: 900;
-  font-size: 1.3rem;
+  display: block;
+  object-fit: contain;
 }
 .brand-logo-text {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 .brand-logo-text .name {
   font-size: 1.45rem;
@@ -1212,7 +1209,18 @@ footer.site-footer {
 }
 
 .footer-col .footer-brand {
+  margin-bottom: 1.25rem;
+  width: fit-content;
+}
+
+.footer-brand .name {
+  color: var(--inverse-text);
   font-size: 1.2rem;
+}
+
+.footer-brand .tag {
+  color: var(--inverse-muted);
+  font-size: 0.6rem;
 }
 
 .footer-intro {
