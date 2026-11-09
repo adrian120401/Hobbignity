@@ -40,6 +40,7 @@ for (const route of ['', 'es', 'en']) {
   const prefix = route ? '../' : '';
   const values = {
     language,
+    languageCode: language.toUpperCase(),
     siteUrl,
     pageUrl: `${siteUrl}${language}/`,
     locale: language === 'es' ? 'es_UY' : 'en_US',
@@ -47,8 +48,10 @@ for (const route of ['', 'es', 'en']) {
     redirectScript: route ? '' : '<script src="language-redirect.js"></script>',
     esHref: `${prefix}es/`,
     enHref: `${prefix}en/`,
-    esCurrent: language === 'es' ? 'aria-current="page"' : '',
-    enCurrent: language === 'en' ? 'aria-current="page"' : ''
+    esSelected: language === 'es' ? ' selected' : '',
+    enSelected: language === 'en' ? ' selected' : '',
+    esCurrent: language === 'es' ? ' aria-current="page"' : '',
+    enCurrent: language === 'en' ? ' aria-current="page"' : ''
   };
   let html = language === 'en' ? translate(template) : template;
   html = html.replace(/\{\{(\w+)\}\}/g, (_, key) => {

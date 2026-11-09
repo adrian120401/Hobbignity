@@ -202,31 +202,45 @@ body {
   gap: 0.4rem;
 }
 .language-switcher {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-}
-.language-switcher a {
+  position: relative;
   display: inline-flex;
   align-items: center;
+  gap: 0.35rem;
   min-height: max(36px, 2.25rem);
-  padding: 0.25rem 0.6rem;
-  border: 1px solid transparent;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--inverse-border);
   border-radius: 4px;
-  color: var(--inverse-muted);
-  text-decoration: none;
+  background: var(--inverse-surface);
+  color: var(--inverse-text);
   font-size: 0.75rem;
-}
-.language-switcher a:hover {
-  color: var(--inverse-text);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
-}
-.language-switcher a[aria-current="page"] {
-  border-color: var(--inverse-border);
-  color: var(--inverse-text);
   font-weight: 700;
 }
+.language-switcher:hover {
+  background: var(--inverse-hover);
+}
+.language-switcher:focus-within {
+  outline: var(--focus-ring);
+  outline-color: var(--inverse-text);
+  outline-offset: 3px;
+}
+.language-switcher img {
+  border-radius: 2px;
+  object-fit: cover;
+}
+.language-switcher select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  background: var(--inverse-surface);
+}
+.language-links {
+  display: flex;
+  gap: 0.35rem;
+}
+.language-links a { text-decoration: none; }
 .a11y-btn {
   background: var(--inverse-surface);
   color: var(--inverse-text);

@@ -23,15 +23,16 @@ const messages = {
   }
 }[language];
 
-// Keep the current section and query when moving between language URLs.
-for (const link of document.querySelectorAll('[data-language]')) {
-  link.addEventListener('click', () => {
-    const destination = new URL(link.href);
-    destination.search = window.location.search;
-    destination.hash = window.location.hash;
-    link.href = destination.href;
-  });
-}
+const languageSelect = document.getElementById('languageSelect');
+const currentLanguagePath = languageSelect.value;
+languageSelect.addEventListener('change', () => {
+  const destination = new URL(languageSelect.value, window.location.href);
+  destination.search = window.location.search;
+  destination.hash = window.location.hash;
+  languageSelect.value = currentLanguagePath;
+  window.location.assign(destination.href);
+});
+languageSelect.parentElement.hidden = false;
 const productsGrid = document.getElementById('productsGrid');
 const productCards = [...productsGrid.querySelectorAll('.product-card')];
 const filterChips = document.querySelectorAll('.filter-chip');
@@ -198,7 +199,8 @@ function closeCheckout() {
 }
 
 function formatPrice(amount) {
-  return `€${language === 'es' ? amount.toFixed(2).replace('.', ',') : amount.toFixed(2)}`;
+  const value = amount.toFixed(2);
+  return `US$ ${language === 'es' ? value.replace('.', ',') : value}`;
 }
 
 function renderCart() {

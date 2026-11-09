@@ -51,7 +51,8 @@ test('both languages have complete static content, accessible controls and local
     const page = pages[`${language}/`];
     assert.match(page, new RegExp(`<html lang="${language}">`));
     assert.match(page, new RegExp(`<link rel="canonical" href="https://adrian120401.github.io/Hobbignity/${language}/"`));
-    assert.match(page, new RegExp(`data-language="${language}" aria-current="page"`));
+    assert.match(page, new RegExp(`<option value="../${language}/" lang="${language}" selected>`));
+    assert.match(page, new RegExp(`src="../assets/flags/${language}\\.svg"`));
     assert.equal((page.match(/class="product-card"/g) ?? []).length, 5);
     for (const other of ['es', 'en']) {
       assert.match(page, new RegExp(`hreflang="${other}" href="https://adrian120401.github.io/Hobbignity/${other}/"`));
